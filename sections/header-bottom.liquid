@@ -1,0 +1,34 @@
+<div class="site-header">
+  <ul id="list-choose">
+    {% for choose in collections %}
+    	{% if choose.title != 'Home page' %}
+    	<li>{{ choose.title }}</li>
+    	{% endif %}
+    {% endfor %}
+  </ul>
+</div>
+<div style="clear: both;"></div>
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+<style>
+  #list-choose{
+    list-style-type: none;
+  }
+  #list-choose li{
+    float: left;
+    line-height: 50px;
+	width: 150px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+</style>
+{% stylesheet %}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,91 @@
+<style>
+  #section-cta{
+    color: {{ section.settings.text-box-body }};
+  }
+  .reason-text{
+    color: red;
+    background : yellow;
+    width: 600px;
+    max-height : 210px;
+    line-height : 70px;
+    margin-left : 50px;
+    margin-bottom : 20px;
+    padding-left: 50px;
+    font-family: "Work Sans",sans-serif;
+    font-size: 18px;
+    float: left;
+  }
+</style>
+<hr>
+<div id="section-cta">
+  <div class="section-header text-center">
+    <h3> {{ section.settings.text-box }} </h3>
+  </div>
+
+  {% for block in section.blocks %}   
+    <div class="reason-text">{{ block.settings.text-reason-body }}</div>
+  {% endfor %}
+  
+  <div style="clear: both;"></div>
+
+</div>  
+<hr>
+{% schema %}
+{
+  "name": "Reason choose Web",
+	"max_blocks": 6,
+  "settings": [
+    {
+      "id": "text-box",
+      "type": "text",
+      "label": "Heading",
+      "default": "Title"
+    },
+	{
+	  "id": "text-box-body",
+      "type": "color",
+      "label": "body color text",
+      "default": "#333333"
+	}
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Add Reason",
+      "settings": [
+        {
+          "id": "text-reason",
+          "type": "text",
+       		"label": "Reason"
+        },
+        {
+          "id": "text-reason-body",
+          "type": "text",
+          "label": "Reason text",
+          "default": "........."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add Reason",
+      "category": "Reason",
+      "blocks": [
+        { 
+          "type": "select"
+        },
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
